@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>InterUnido Casa de Cambio</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>InterUnido - Casa de Cambio</h1>
+    
+    <!-- Etapa 1: Datos de la Operación -->
+    <section id="stage1">
+      <h2>Datos de la Operación</h2>
+      <form id="operationForm">
+        <div class="form-group">
+          <label for="clientName">Nombre del Cliente:</label>
+          <input type="text" id="clientName" required>
+        </div>
+        <div class="form-group">
+          <label for="amountToSell">Monto que desea vender:</label>
+          <input type="number" id="amountToSell" min="0" step="any" required>
+        </div>
+        <div class="form-group">
+          <label for="currencyType">Tipo de Divisa:</label>
+          <select id="currencyType" required>
+            <option value="" disabled selected>Seleccione una opción</option>
+            <option value="Euros en efectivo">Euros en efectivo</option>
+            <option value="Euro transferencia">Euro transferencia</option>
+            <option value="Dólares en efectivo">Dólares en efectivo</option>
+            <option value="Dólares Zelle">Dólares Zelle</option>
+            <option value="Dólares en Bancos internacionales">Dólares en Bancos internacionales</option>
+            <option value="Binance USDT">Binance USDT</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="clientRate">Tasa Cliente:</label>
+          <input type="number" id="clientRate" min="0" step="any" required>
+        </div>
+        <div class="form-group">
+          <label for="amountClientReceives">Monto que debe recibir el cliente al terminar la operación:</label>
+          <input type="text" id="amountClientReceives" readonly>
+        </div>
+        <button type="submit" id="proceedToStage2">Continuar</button>
+      </form>
+    </section>
+    
+    <!-- Etapa 2: Agregar Transacciones de Venta -->
+    <section id="stage2" style="display: none;">
+      <h2>Agregar Transacciones de Venta</h2>
+      <div id="transactions"></div>
+      <button id="addTransaction">Agregar Transacción</button>
+    </section>
+    
+    <!-- Etapa 3: Resultado de la Operación -->
+    <section id="stage3" style="display: none;">
+      <h2>Resultado de la Operación</h2>
+      <div id="results"></div>
+    </section>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
